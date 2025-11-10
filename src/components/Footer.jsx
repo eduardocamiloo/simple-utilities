@@ -1,3 +1,5 @@
+import Image from './Image';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-100 border-t border-gray-200 py-4 w-full mt-10">
@@ -9,7 +11,7 @@ export default function Footer() {
               className="text-blue-700 hover:underline hover:bg-blue-50 transition rounded-md flex gap-1" target="_blank"
               href="https://github.com/eduardocamiloo"
             >
-              <img src="/github.svg" alt="Logo do Github" className="w-5" />
+              <Image src='/github.svg' alt="Logo do Github" className="w-5" />
               @eduardocamiloo
             </a>
           </p>

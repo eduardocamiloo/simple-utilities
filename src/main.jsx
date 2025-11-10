@@ -8,25 +8,26 @@ import Calculator from './pages/Calculator';
 import EAN13Generator from './pages/EAN13Generator';
 import Home from './pages/Home';
 
-const router = createBrowserRouter([
+
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Page />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "calculadora", element: <Calculator /> },
+        { path: "gerador-ean-13", element: <EAN13Generator /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/calculadora",
-    element: <Calculator />
-  },
-  {
-    path: "/gerador-ean-13",
-    element: <EAN13Generator />
-  },
-]);
+    basename: import.meta.env.BASE_URL,
+  }
+);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Page>
-      <RouterProvider router={router} />
-    </Page>
+    <RouterProvider router={router} />
   </StrictMode>,
 )

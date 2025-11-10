@@ -1,5 +1,6 @@
 import { Barcode, Calculator, Wrench } from "lucide-react";
 import DropdownList from "./navbar/DropdownList";
+import { Link } from "react-router";
 
 const menu = [
   {
@@ -23,15 +24,15 @@ export default function Navbar() {
   return (
     <header className="md:flex md:justify-between flex-col md:flex-row shadow-sm bg-white w-full">
       <div className="md:relative flex items-center w-[90%] mx-auto py-3">
-        <a
+        <Link
           className="flex items-center gap-2"
-          href="/"
+          to="/"
         >
           <span className="bg-blue-600 rounded-md text-white p-1">
             <Wrench />
           </span>
           <span className="font-bold">Utilitários Simples</span>
-        </a>
+        </Link>
 
         <nav className="md:absolute md:left-1/2 md:-translate-x-1/2 flex gap-6 space-x-8">
           {menu.map(category => (

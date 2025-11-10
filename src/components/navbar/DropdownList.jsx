@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router";
 
 export default function DropdownList({ name, items }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,13 +23,14 @@ export default function DropdownList({ name, items }) {
             {isOpen && (
                 <div className="mt-2 lg:absolute lg:top-full lg:left-0 lg:mt-2 lg:w-48 lg:bg-white lg:rounded-md lg:shadow-lg lg:border lg:border-gray-100 lg:py-1 lg:z-50">
                     {items.map((item, index) => (
-                        <a
+                        <Link
+                            onClick={() => setIsOpen(false)}
                             key={index}
-                            href={item.link}
+                            to={item.link}
                             className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded-md"
                         >
                             {item.icon} {item.name}
-                        </a>
+                        </Link>
                     ))}
                 </div>
             )}
